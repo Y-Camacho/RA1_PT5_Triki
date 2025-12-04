@@ -1,9 +1,15 @@
 ﻿Public Class CTresEnRalla
 
-    Private _matrix(2, 2) As Integer ' Matriz del juego
+    Private ReadOnly _matrix(2, 2) As Integer ' Matriz del juego
     Private _actualPlayer As Integer ' 0 = circulo ( o ) , 1 = equis ( x )
 
     Private ReadOnly _rnd As New Random()
+
+    Public ReadOnly Property Matrix As Integer(,)
+        Get
+            Return _matrix
+        End Get
+    End Property
 
 
     Public ReadOnly Property actualPlayer() As Integer
@@ -36,7 +42,11 @@
     Public Sub SetMove(column As Integer, row As Integer)
 
         If (column < 0 Or column > 2) Or (row < 0 Or row > 2) Then
-            Throw New System.IndexOutOfRangeException("Posicón inexistente")
+            Throw New System.IndexOutOfRangeException("Posición inexistente")
+        End If
+
+        If Me._matrix(column, row) <> -1 Then
+            Throw New System.IndexOutOfRangeException("Posición ocupada")
         End If
 
         Me._matrix(column, row) = actualPlayer()
