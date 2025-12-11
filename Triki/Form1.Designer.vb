@@ -36,6 +36,10 @@ Partial Class Form1
         lblTurn = New Label()
         checkOnePlayer = New CheckBox()
         checkBeSecond = New CheckBox()
+        Label2 = New Label()
+        Label3 = New Label()
+        lblCount_o = New Label()
+        lblCount_x = New Label()
         CType(box00, ComponentModel.ISupportInitialize).BeginInit()
         CType(box02, ComponentModel.ISupportInitialize).BeginInit()
         CType(box12, ComponentModel.ISupportInitialize).BeginInit()
@@ -198,11 +202,55 @@ Partial Class Form1
         checkBeSecond.Text = "Comenzar 2do"
         checkBeSecond.UseVisualStyleBackColor = True
         ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Candara", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(36, 319)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(24, 18)
+        Label2.TabIndex = 15
+        Label2.Text = "X :"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Candara", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Location = New Point(35, 337)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(25, 18)
+        Label3.TabIndex = 16
+        Label3.Text = "O :"
+        ' 
+        ' lblCount_o
+        ' 
+        lblCount_o.AutoSize = True
+        lblCount_o.Font = New Font("Candara", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblCount_o.Location = New Point(62, 337)
+        lblCount_o.Name = "lblCount_o"
+        lblCount_o.Size = New Size(16, 18)
+        lblCount_o.TabIndex = 17
+        lblCount_o.Text = "0"
+        ' 
+        ' lblCount_x
+        ' 
+        lblCount_x.AutoSize = True
+        lblCount_x.Font = New Font("Candara", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblCount_x.Location = New Point(62, 319)
+        lblCount_x.Name = "lblCount_x"
+        lblCount_x.Size = New Size(16, 18)
+        lblCount_x.TabIndex = 18
+        lblCount_x.Text = "0"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(313, 358)
+        ClientSize = New Size(313, 362)
+        Controls.Add(lblCount_x)
+        Controls.Add(lblCount_o)
+        Controls.Add(Label3)
+        Controls.Add(Label2)
         Controls.Add(box11)
         Controls.Add(box00)
         Controls.Add(box10)
@@ -246,5 +294,9 @@ Partial Class Form1
     Friend WithEvents lblTurn As Label
     Friend WithEvents checkOnePlayer As CheckBox
     Friend WithEvents checkBeSecond As CheckBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents lblCount_o As Label
+    Friend WithEvents lblCount_x As Label
 
 End Class

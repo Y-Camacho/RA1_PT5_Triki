@@ -7,6 +7,9 @@
     Dim contraMaquina As Boolean
     Dim turnoMaquina As Boolean
 
+    Dim winCount_O As Integer = 0
+    Dim winCount_X As Integer = 0
+
     Private Sub checkOnePlayer_CheckedChanged(sender As Object, e As EventArgs) Handles checkOnePlayer.CheckedChanged
         If checkOnePlayer.Checked Then      ' Si el "1 jugador" esta seleccionado
             contraMaquina = True            ' Habilita el juego contra la maquina
@@ -87,12 +90,19 @@
             FinishGame()
         ElseIf state = EGameStatus.GameStatusEnum.GANA_CIRCULO Then
             MessageBox.Show("Gana circulo")
+            winCount_O = winCount_O + 1
             FinishGame()
         ElseIf state = EGameStatus.GameStatusEnum.GANA_EQUIS Then
             MessageBox.Show("Gana equis")
+            winCount_X = winCount_X + 1
             FinishGame()
         End If
 
+    End Sub
+
+    Private Sub PrintWinCounts()
+        lblCount_o.Text = winCount_O
+        lblCount_x.Text = winCount_X
     End Sub
 
     Private Sub FinishGame()
@@ -114,6 +124,8 @@
         box22.Image = Nothing
 
         lblTurn.Text = ""                   ' Elimina el contenmido del label que indica el turno
+
+        PrintWinCounts()                    ' Imprime los resultados hasta el momento. 
 
     End Sub
 
